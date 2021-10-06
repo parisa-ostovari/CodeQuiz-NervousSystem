@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+:root {
+    --neutral: rgb(200, 226, 248);
+    --wrong: rgb(242, 171, 171) ;
+    --correct: rgb(186, 226, 186); ;
+    --main: rgb(125, 162, 218);
+}
+
+body {
+    padding: 0;
+    margin: 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    width: 500px;
+    max-width: 80%;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: rgb(88, 96, 110) 0 0 10px 2px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.button {
+    border: 1px solid var(--main);
+    background-color: var(--neutral);
+    border-radius: 5px;
+    padding: 3px 10px;
+    outline: none;
+}
+
+.button:hover {
+    border-color: rgba(8, 42, 166, 0.771);
+    background-color: rgb(164, 214, 245);
+}
+
+.button.correct {
+    background-color: var(--correct);
+}
+
+.button.wrong {
+    background-color: var(--wrong);
+}
+
+.start-button {
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+
+h1 {
+    font-size: 38px;
+    text-align: center;
+
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.hide {
+    display: none;
+}
