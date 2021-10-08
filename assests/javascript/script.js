@@ -1,21 +1,21 @@
-var openingTitle = document.querySelector('#opening-title')
-var startButton = document.querySelector('#start-button')
-var nextButton = document.querySelector('#next-button')
+var openingPage = document.querySelector('#opening-page')
+var startBtn = document.querySelector('#start-btn')
+var nextBtn = document.querySelector('#next-btn')
 var questionContainerEl = document.querySelector('#question-container')
 var questionEl = document.querySelector('#question')
-var answerButtonsEl = document.querySelector('#answer-buttons')
+var answerButtonsEl = document.querySelector('#answer-btn')
 
 let shuffledQuestions, currentQuestionIndex
 
-startButton.addEventListener('click', startQuiz)
-nextButton.addEventListener('click', () => {
+startBtn.addEventListener('click', startQuiz)
+nextBtn.addEventListener('click', () => {
     currentQuestionIndex++
     setNextQuestion()
 })
 
 function startQuiz() {
-    startButton.classList.add('hide')
-    openingTitle.classList.add('hide')
+    startBtn.classList.add('hide')
+    openingPage.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerEl.classList.remove('hide')
@@ -41,7 +41,7 @@ function showQuestion(question) {
     })
 }
 
-// Buttons
+// Start/Next Buttons
 
 function resetstate() {
     nextButton.classList.add('hide')
@@ -128,7 +128,7 @@ var questions = [
         answers: [
             { text: 'Hamstrings', correct: true },
             { text: 'Quadriceps Femoris', correct: false },
-            { text: 'External Rotators', correct: true },
+            { text: 'External Rotators', correct: false },
             { text: 'Plantar Flexors', correct: false }
         ]
     }

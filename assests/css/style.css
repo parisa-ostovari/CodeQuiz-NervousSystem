@@ -1,7 +1,7 @@
 * {
     box-sizing: border-box;
-    
 }
+
 :root {
     --neutral: rgb(200, 226, 248);
     --wrong: rgb(242, 171, 171) ;
@@ -13,15 +13,18 @@
 body {
     padding: 0;
     margin: 0 ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
     font-family: var(--font);
 }
 
+h1,
+h2 {
+    font-weight: bolder;
+    padding-bottom: 15px;
+}
+
 .container {
+    margin-bottom: 25px;
+    padding: 25px;
     width: 500px;
     max-width: 80%;
     border-radius: 5px;
@@ -29,69 +32,48 @@ body {
     box-shadow: rgb(88, 96, 110) 0 0 10px 2px;
 }
 
-.button-grid {
+.custom-btn {
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
     margin: 20px 0;
 }
 
-.button {
+.custom-btn button {
     border: 1px solid var(--main);
     background-color: var(--neutral);
     border-radius: 5px;
     padding: 3px 10px;
     outline: none;
 }
-
-.button:hover {
+  
+.custom-btn button:hover {
     border-color: rgba(8, 42, 166, 0.771);
     background-color: rgb(164, 214, 245);
 }
 
-.button.correct {
-    background-color: var(--correct);
-}
-
-.button.wrong {
-    background-color: var(--wrong);
-}
-
-.start-button {
-    font-size: 30px;
+#start-btn {
+    font-size: 20px;
     font-weight: bold;
     font-family: var(--font);
 }
 
-.next-button {
+#next-btn {
     font-size: 15px;
     font-family: var(--font);
 }
 
-#answer-buttons {
-    font-size: 18px;
-    font-family: var(--font);
-}
-
-h1 {
-    font-size: 38px;
-    text-align: center;
-    padding: 20px 10px 40px 10px;
-}
-
-#question {
-    font-size: 22px;
-    font-weight: bold;
-}
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    grid-column: 1;
-    grid-row: 1;
-}
 
 .hide {
     display: none;
+}
+
+.grow {
+    width: 400px;
+
+}
+
+#timer {
+    font-size: 20px;
+    color: black;
 }
