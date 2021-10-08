@@ -1,12 +1,13 @@
 * {
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
 :root {
     --neutral: rgb(200, 226, 248);
     --wrong: rgb(242, 171, 171) ;
     --correct: rgb(186, 226, 186); ;
     --main: rgb(125, 162, 218);
+    --font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
 body {
@@ -17,6 +18,7 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
+    font-family: var(--font);
 }
 
 .container {
@@ -58,15 +60,29 @@ body {
 .start-button {
     font-size: 30px;
     font-weight: bold;
-    
+    font-family: var(--font);
+}
+
+.next-button {
+    font-size: 15px;
+    font-family: var(--font);
+}
+
+#answer-buttons {
+    font-size: 18px;
+    font-family: var(--font);
 }
 
 h1 {
     font-size: 38px;
     text-align: center;
-
+    padding: 20px 10px 40px 10px;
 }
 
+#question {
+    font-size: 22px;
+    font-weight: bold;
+}
 .controls {
     display: flex;
     justify-content: center;
