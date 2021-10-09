@@ -14,7 +14,7 @@
     
     <!-- Nav Bar -->
     <header>
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light" style="background-color: rgb(200, 226, 248);">
             <a class="navbar-brand mb-0" id="HighScores" href="#">View High Scores</a>
             <div>
                     <span class="navbar-text" id="timer"> Time: </span>
@@ -36,20 +36,22 @@
             </section>
             
             <!-- Questions -->
-            <section  class="hide" id="question-container">
+            <section class="hide" id="question-container">
                 <div class="container text-center my-4">
                     <div class="justify-content-center"><h2 id="question">Question</h2></div>
-                    <div class="justify-content-center" id="answer-btn">
+                    <div class="justify-content-center custom-btn" id="answer-btn">
                         <button class="btn">Answer 1</button>
                         <button class="btn">Answer 2</button>
                         <button class="btn">Answer 3</button>
                         <button class="btn">Answer 4</button>
-                        <div class="col justify-content-center">
-                            <button class ="hide" id="next-btn">Next</button>
-                        </div>
+                    </div>
+                    <div>
+                        <button class ="hide" id="next-btn">Next</button>
                     </div>
                 </div>
             </section>
+
+            
             
             <!-- Submit High Score -->
             <section class="hide" id="submit-high-score">

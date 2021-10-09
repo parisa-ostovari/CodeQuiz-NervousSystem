@@ -16,6 +16,10 @@ body {
     font-family: var(--font);
 }
 
+.custom-navbar {
+    background-color: var(--wrong);
+}
+
 h1,
 h2 {
     font-weight: bolder;
@@ -30,6 +34,16 @@ h2 {
     border-radius: 5px;
     padding: 10px;
     box-shadow: rgb(88, 96, 110) 0 0 10px 2px;
+}
+
+#start-btn,
+#next-btn {
+    border: 1px solid var(--main);
+    background-color: var(--neutral);
+    border-radius: 5px;
+    padding: 3px 10px;
+    outline: none;
+    font-weight: bold;
 }
 
 .custom-btn {

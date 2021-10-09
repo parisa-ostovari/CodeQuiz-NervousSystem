@@ -53,9 +53,7 @@ var questions = [
         'C6, C7, C8',
       ],
       answer: 'C8, T1',
-
-      },
-   
+    },
     {
       question: 'The Sciatic Nerve innervates through which muscle',
       choices: [
@@ -70,11 +68,11 @@ var questions = [
 
 //Start Button
 function startQuiz() {
-  secondsLeft = 15;
+  secondsLeft = 10;
   startTimer();
   startBtn.classList.add('hide');
   openingPage.classList.add('hide');
-
+  nextBtn.classList.add("hide");
   questionContainerEl.classList.remove('hide');
   setNextQuestion();
 }
@@ -84,8 +82,9 @@ function startTimer() {
   timer = setInterval(function () {
     secondsLeft--;
     timerEl.textContent = 'Time left: ' + secondsLeft + ' sec';
-
-    if (secondsLeft === 0) {
+    
+    if (secondsLeft <= 0) {
+      secondsLeft = 0
       clearInterval(timer);
       sendMessage();
     }
@@ -97,6 +96,7 @@ function sendMessage() {
 }
 
 function setNextQuestion() {
+  nextBtn.classList.remove("hide");
   showQuestion();
 }
 
@@ -115,23 +115,39 @@ function showQuestion() {
   });
 }
 
-function selectAnswer() {
-  if (this.value !== questions[currentQuestionIndex].answer){
-    console.log('wrong');
-  } else {
-    console.log('right');
+function selectAnswer () {
+  var choiceBtns = document.querySelectorAll(".choice");
+  for (var i = 0; i < choiceBtns.length; i++) {
+      choiceBtns[i].disabled = true;
+      choiceBtns[i].classList.add("disabled");
+      nextBtn.classList.remove("hide");
   }
-  
+  if (this.value === questions[currentQuestionIndex].answer) {
+      score++;
+      var choice = this;
+      choice.style.backgroundColor = "rgb(186, 226, 186)";
+  } else {
+      secondsLeft = secondsLeft - 5;
+      var choice = this;
+      choice.style.backgroundColor = "rgb(242, 171, 171)";
+      for (var i = 0; i < choiceBtns.length; i++) {
+          if (choiceBtns[i].value === questions[currentQuestionIndex].answer) {
+              choiceBtns[i].style.backgroundColor = "rgb(186, 226, 186)";
+          }
+      }
+  }
   currentQuestionIndex++;
+  nextBtn.addEventListener("click", showQuestion);
 
   if (currentQuestionIndex === questions.length){
-      sendMessage()
+    nextBtn.classList.remove('hide');
+    nextBtn.addEventListener("click", showQuestion);
   } else{
-      showQuestion()
+      return;
   }
 }
 
-//Quiz Answer Function
+// Quiz Answer Function
 function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
