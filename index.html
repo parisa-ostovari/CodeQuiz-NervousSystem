@@ -15,7 +15,7 @@
     <!-- Nav Bar -->
     <header>
         <nav class="navbar navbar-light" style="background-color: rgb(200, 226, 248);">
-            <a class="navbar-brand mb-0" id="HighScores" href="#">View High Scores</a>
+            <a class="navbar-brand mb-0" id="highscores" href="#">View High Scores</a>
             <div>
                     <span class="navbar-text" id="timer"> Time: </span>
                 </div> 
@@ -39,15 +39,16 @@
             <section class="hide" id="question-container">
                 <div class="container text-center my-4">
                     <div class="justify-content-center"><h2 id="question">Question</h2></div>
-                    <div class="justify-content-center custom-btn" id="answer-btn">
+                    <div class="justify-content-center custom-btn" id="choices">
                         <button class="btn">Answer 1</button>
                         <button class="btn">Answer 2</button>
                         <button class="btn">Answer 3</button>
                         <button class="btn">Answer 4</button>
                     </div>
+                    <!-- <p id="check"></p>
                     <div>
                         <button class ="hide" id="next-btn">Next</button>
-                    </div>
+                    </div> -->
                 </div>
             </section>
 
@@ -76,9 +77,10 @@
         <section class="hide" id="view-high-scores">
             <div class="container text-center my-4">
                 <div class="justify-content-center"><h1>High Scores</h1></div>
+                <ol id="highScoreList"></ol>
                 <div class="justify-content-center">
                     <button class="mx-4" id="restart">Restart</button>
-                    <button class="mx-4" id="clear-highScores">Clear high scores</button>
+                    <button class="mx-4" id="clearHighScores">Clear High Scores</button>
                 </div>
                 <div class="theseInitials justify-content-center">
                     <ul id="initials"></ul>
