@@ -72,15 +72,15 @@ var questions = [
     }
   ];
 
-  
-  function startQuiz() {
-    secondsLeft = 90;
-    startTimer();
-    startBtn.classList.add('hide');
-  openingPage.classList.add('hide');
-  score = 0;
-  questionContainerEl.classList.remove('hide');
-  getNextQuestion();
+// Start Quiz
+function startQuiz() {
+  secondsLeft = 90;
+  startTimer();
+  startBtn.classList.add('hide');
+openingPage.classList.add('hide');
+score = 0;
+questionContainerEl.classList.remove('hide');
+getNextQuestion();
 }
 
 // Timer Countdown
@@ -110,13 +110,13 @@ function clear () {
 
 function resetApp () {
   window.location.reload();
-  
 }
 
 function getNextQuestion() {
   showQuestion();
 }
 
+//Show each question
 function showQuestion() {
   var question = questions[currentQuestionIndex];
   questionEl.innerHTML = '';
@@ -132,6 +132,7 @@ function showQuestion() {
   });
 }
 
+// Answer function
 function selectAnswer() {
   if (this.value === questions[currentQuestionIndex].answer){
     console.log('right');
@@ -152,40 +153,11 @@ function selectAnswer() {
   }
 }
 
-
-
-// High Score
-function viewHighScores () {
-
-  //hide submit high score container
-  submitHighScoreContainer.classList.add('hide');
-  //show the view highscores container
-  viewHighScoresContainer.classList.remove('hide');
-  
-  //get info saved in local storage
-  var storedScores = JSON.parse(localStorage.getItem("initialValues")) || [];
-  
-  //sort from high to low
-  storedScores.sort(function(a,b){
-    return b.value - a.value
-  })
-  //loop through the array 
-  storedScores.forEach(function(score){
-    //create li element for each item
-    var li = document.createElement('li');
-    li.textContent = score.initials + ' - ' +score.value
-    var ol = document.querySelector('#highScoreList')
-    ol.appendChild(li)
-  })
-  
-}
-
 //Submit High Score
 function submitHighScore () {
 
   if (userInitials.value !== '') {
     var highScoresArray = JSON.parse(localStorage.getItem('initialValues')) || [];
-    
     let userInfo = {
       initials: userInitials.value.trim(),
       value: secondsLeft
@@ -193,39 +165,27 @@ function submitHighScore () {
     highScoresArray.push(userInfo);
     localStorage.setItem("initialValues", JSON.stringify(highScoresArray));
     
-    viewHighScores();
+    viewHighScoresList();
   }
-  
 }
 
+// View High Scores List
 function viewHighScoresList () {
-  
-  //hide submit high score container
   submitHighScoreContainer.classList.add('hide');
   openingPage.classList.add("hide");
   questionContainerEl.classList.add("hide");
-  //show the view highscores container
   viewHighScoresContainer.classList.remove('hide');
-  
-  //get info saved in local storage
   var storedScores = JSON.parse(localStorage.getItem("initialValues")) || [];
-  
-  //sort from high to low
   storedScores.sort(function(a,b){
     return b.value - a.value
   })
-  //loop through the array 
   storedScores.forEach(function(score){
-    //create li element for each item
     var li = document.createElement('li');
     li.textContent = score.initials + ' - ' +score.value
     var ol = document.querySelector('#highScoreList')
     ol.appendChild(li)
   })
 }
-
-
-
 
 // Button clicks
 startBtn.onclick = startQuiz;

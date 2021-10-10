@@ -66,14 +66,6 @@ h2 {
     background-color: rgb(164, 214, 245);
 }
 
-.btn.correct {
-    background-color: var(--correct);
-}
-
-.btn.wrong {
-    background-color: var(--wrong);
-}
-
 #start-btn {
     font-size: 20px;
     font-weight: bold;
